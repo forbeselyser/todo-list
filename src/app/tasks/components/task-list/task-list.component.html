@@ -1,3 +1,23 @@
-<div class="task" *ngFor="let task of tasks">
-    {{ task.title }} <button (click)="onRemoveTask(task)">x</button>
+<div class="tasks-container">
+
+    <div>
+        <a [routerLink]="['/tasks']">
+            <button class="filter-button" [class.selected]="!filter">All</button>
+        </a>
+        <a [routerLink]="['/tasks', { filter: 'active' }]">
+            <button class="filter-button" [class.selected]="filter === 'active'">Active</button>
+        </a>
+        <a [routerLink]="['/tasks', { filter: 'completed' }]">
+            <button class="filter-button" [class.selected]="filter === 'completed'" >Completed</button>
+        </a>
+    </div>
+
+    <div class="task" *ngFor="let task of tasks | filterTasks: filter">
+        <div class="task-check">
+          <input type="checkbox" (change)="onCheckboxChange($event, task)" [checked]="task.completed" />
+          <label></label>
+        </div>
+        <span class="task-title" [class.strike-through]="task.completed" >{{ task.title }}</span> 
+        <button class="task-remove" (click)="onRemoveTask(task)">x</button>
+    </div>
 </div>

@@ -7,12 +7,14 @@ import { TasksRoutingModule } from "./tasks-routing.module";
 import { StoreModule } from '@ngrx/store';
 import { tasksReducer } from './services/state/tasks.reducer';
 import { TaskListComponent } from "./components/task-list/task-list.component";
+import { FilterTasksPipe } from './pipes/filter-tasks.pipe';
 
 @NgModule({
   declarations: [
     CreateComponent,
     TasksComponent,
     TaskListComponent,
+    FilterTasksPipe,
   ],
   imports: [
     CommonModule,

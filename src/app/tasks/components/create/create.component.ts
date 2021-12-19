@@ -19,6 +19,11 @@ export class CreateComponent implements OnInit {
   }
 
   onCreateTask(text: string) {
+
+    if(!text) {
+      return;
+    }
+
     this.taskStateService.add(new Task(text));
     this.taskValue = '';
   }

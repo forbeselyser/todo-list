@@ -1,2 +1,4 @@
-<task-create></task-create>
-<task-list [tasks]="(tasks$ | async) ?? []"></task-list>
+<div class="task-container">
+  <task-create></task-create>
+  <task-list [filter]="(filter$ | async) ?? ''" [tasks]="(tasks$ | async) ?? []"></task-list>
+</div>

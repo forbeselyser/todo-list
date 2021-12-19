@@ -9,7 +9,8 @@ import { TaskStateService } from '../../services/state/task-state.service';
 })
 export class TaskListComponent implements OnInit {
 
-  @Input() tasks: ReadonlyArray<Task> = [];
+  @Input() filter!: string;
+  @Input() tasks: Task[] = [];
 
   constructor(
     private taskStateService: TaskStateService
@@ -20,6 +21,14 @@ export class TaskListComponent implements OnInit {
 
   onRemoveTask(task: Task) {
     this.taskStateService.remove(task);
+  }
+
+  onCheckboxChange(e: any, task: Task) {
+    const checked = e.target.checked;
+    
+    const updatedTask: Task = Object.assign({}, task, { completed: checked });
+
+    this.taskStateService.update(updatedTask);
   }
 
 }

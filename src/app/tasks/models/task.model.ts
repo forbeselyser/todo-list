@@ -5,6 +5,7 @@ export class Task {
     completed: boolean = false;
 
     constructor(title: string) {
+        this.id = Date.now().toString();
         this.title = title;
     }
 }
