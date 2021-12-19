@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../../models/task.model';
+import { TaskStateService } from '../../services/state/task-state.service';
 
 @Component({
   selector: 'task-create',
@@ -9,12 +11,15 @@ export class CreateComponent implements OnInit {
 
   taskValue: string = '';
 
-  constructor() { }
+  constructor(
+    private taskStateService: TaskStateService
+  ) { }
 
   ngOnInit(): void {
   }
 
   onCreateTask(text: string) {
-
+    this.taskStateService.add(new Task(text));
+    this.taskValue = '';
   }
 }

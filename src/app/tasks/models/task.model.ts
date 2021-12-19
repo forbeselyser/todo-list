@@ -1,15 +1,10 @@
-export interface ITask {
-    id: string;
-    text: string;
-    completed: boolean;
-}
-
-export class Task implements ITask{
-    id: string = '';
-    text: string = '';
+export class Task {
+    id!: string;
+    title: string;
+    userId!: string;
     completed: boolean = false;
 
-    constructor(text: string) {
-        this.text = text;
+    constructor(title: string) {
+        this.title = title;
     }
 }

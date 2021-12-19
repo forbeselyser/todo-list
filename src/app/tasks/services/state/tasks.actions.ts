@@ -16,7 +16,7 @@ export const updateTask = createAction(
     props<{ task: Task }>()
 )
 
-export const getTaskList = createAction(
-    '[Task List] Get Books Success',
+export const loadTasks = createAction(
+    '[Task List] Load Tasks',
     props<{ tasks: ReadonlyArray<Task> }>()
 )

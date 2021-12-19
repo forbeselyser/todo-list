@@ -1,0 +1,3 @@
+<div class="task" *ngFor="let task of tasks">
+    {{ task.title }} <button (click)="onRemoveTask(task)">x</button>
+</div>
